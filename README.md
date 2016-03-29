@@ -1,2 +1,0 @@
-# HelloACE
-test ACE project
