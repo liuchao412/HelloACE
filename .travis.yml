@@ -1,10 +1,11 @@
 language: cpp
 compiler:
     - g++
-ACE:
-    - '6.4.0'
+env:
+    - ACE_ROOT=/usr/local/ACE_wrappers
 script:
     #- $CXX main.cpp -o cpp_ci_test.o
     #- ./cpp_ci_test.o
     - echo -e "hello world!"
     - echo -e $ACE_ROOT
+    pwd
