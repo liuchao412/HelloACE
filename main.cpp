@@ -11,5 +11,7 @@ int main(int argc, char *argv[])
 	ACE_DEBUG((LM_DEBUG,("Hello World\n")));
 	ACE_DEBUG((LM_DEBUG,("Hello World\n")));
 	ACE_DEBUG((LM_DEBUG,("Hello World\n")));
+
+	ACE_DEBUG((LM_DEBUG,("Hello World\n")));
 	return 0;
 }
