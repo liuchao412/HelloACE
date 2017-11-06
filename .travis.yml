@@ -41,6 +41,9 @@ before_script:
   - make ACE > /dev/null 2>&1
   - ls $ACE_ROOT/lib/
 script:
+  - cd $TRAVIS_BUILD_DIR
+  - $ACE_ROOT/bin/mwc.pl -type gnuace
+  - make -j 6
   - echo -e "hello world!"
   - echo -e $ACE_ROOT
   - echo -e $CURPATH
