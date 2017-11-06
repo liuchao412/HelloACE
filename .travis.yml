@@ -38,7 +38,7 @@ before_script:
 
   - cd $ACE_ROOT
   - $ACE_ROOT/bin/mwc.pl -type gnuace ACE.mwc
-  - make -j 6
+  - make ACE
   - ls $ACE_ROOT/lib/
 script:
   - echo -e "hello world!"
