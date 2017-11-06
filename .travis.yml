@@ -1,4 +1,4 @@
-sudo: true
+sudo: false         # 开启基于容器的Travis CI任务，让编译效率更高。
 language: cpp
 os:
   - linux
@@ -12,7 +12,7 @@ env:
   global:
     - CURPATH=$(pwd)
     - ACEDIR=$HOME/Tools
-    - ACE_ROOT=$ACEDIR/ACE_TAO/ACE_wrappers
+    - ACE_ROOT=$ACEDIR/ACE_wrappers
     - LD_LIBRARY_PATH=$ACE_ROOT/lib:$LD_LIBRARY_PATH
     - COMPILER=g++-7
 
@@ -21,13 +21,13 @@ before_install:
   - cd $ACEDIR
   - wget http://download.dre.vanderbilt.edu/previous_versions/ACE-6.4.0.tar.gz
   - tar zxvf ACE-6.4.0.tar.gz
-  - ls ./
 
 before_script:
   - export
-  - export
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then echo -e "#include \"ace/config-linux.h\"" >> $ACE_ROOT/ace/config.h; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then echo -e "#define ACE_HAS_EVENT_POLL" >> $ACE_ROOT/ace/config.h; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then 
+      echo -e "#include \"ace/config-linux.h\"" >> $ACE_ROOT/ace/config.h; 
+      echo -e "#define ACE_HAS_EVENT_POLL" >> $ACE_ROOT/ace/config.h; 
+    fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then
       if [ "$CXX" == "g++" ]; then
         echo -e "include \$(ACE_ROOT)/include/makeinclude/platform_linux.GNU" >> $ACE_ROOT/include/makeinclude/platform_macros.GNU;
