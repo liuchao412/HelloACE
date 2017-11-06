@@ -19,9 +19,9 @@ env:
   global:
     - CURPATH=$(pwd)
     - ACEDIR=$HOME/Tools
-    - ACE_ROOT=$ACEDIR/ACE
-    - TAO_ROOT=$ACEDIR/TAO
-    - MPC_ROOT=$ACEDIR/MPC
+    - ACE_ROOT=$ACEDIR/ACE_TAO/ACE
+    - TAO_ROOT=$ACEDIR/ACE_TAO/TAO
+    - MPC_ROOT=$ACEDIR/ACE_TAO/MPC
     - LD_LIBRARY_PATH=$ACE_ROOT/lib:$LD_LIBRARY_PATH
     - COMPILER=g++-7
 
@@ -54,6 +54,7 @@ addons:
 before_install:
   - mkdir -p $ACEDIR
   - cd $ACEDIR
+  - git clone --depth 1 git://github.com/DOCGroup/ACE_TAO.git
   - git clone --depth 1 git://github.com/DOCGroup/MPC.git
 
 branches:
