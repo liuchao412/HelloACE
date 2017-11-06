@@ -44,6 +44,4 @@ script:
   - cd $TRAVIS_BUILD_DIR
   - $ACE_ROOT/bin/mwc.pl -type gnuace
   - make -j 6
-  - echo -e "hello world!"
-  - echo -e $ACE_ROOT
-  - echo -e $CURPATH
+  - ls $TRAVIS_BUILD_DIR
