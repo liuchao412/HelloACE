@@ -35,6 +35,10 @@ before_script:
         echo -e "include \$(ACE_ROOT)/include/makeinclude/platform_linux_clang.GNU" >> $ACE_ROOT/include/makeinclude/platform_macros.GNU;
       fi
     fi
+
+  - cd $ACE_ROOT
+  - perl $ACE_ROOT/bin/mwc.pl -type gnuace -workers 2 ace.mwc
+  - make -j 6
   - ls $ACE_ROOT/lib/
 script:
   - echo -e "hello world!"
