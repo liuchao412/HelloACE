@@ -1,0 +1,16 @@
+project(ACETest):aceexe{
+ 	exename = ACETest
+
+ Source_Files{
+  ./*.cpp
+ }
+ macros += __LINUX__
+
+  specific(make) {
+    compile_flags += -fcheck-new
+  }
+
+  specific(gnuace) {
+    compile_flags += -Wno-deprecated
+  }
+}
