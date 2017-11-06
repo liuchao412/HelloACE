@@ -1,4 +1,4 @@
-sudo: false
+sudo: true
 language: cpp
 os:
   - linux
@@ -11,12 +11,14 @@ env:
     - ACE=1 EPOLL=1
   global:
     - CURPATH=$(pwd)
-    - ACE_ROOT=$TRAVIS_BUILD_DIR/ACE
-    - MPC_ROOT=$TRAVIS_BUILD_DIR/MPC
+    - ACEDIR=$HOME/Tools/
+    - ACE_ROOT=$ACEDIR/ACE
     - LD_LIBRARY_PATH=$ACE_ROOT/lib:$LD_LIBRARY_PATH
     - COMPILER=g++-7
 
 before_install:
+  - mkdir -p $ACEDIR
+  - cd $ACEDIR
   - git clone --depth 1 git://github.com/DOCGroup/MPC.git
 
 branches:
