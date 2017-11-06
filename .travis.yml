@@ -54,8 +54,8 @@ addons:
 before_install:
   - mkdir -p $ACEDIR
   - cd $ACEDIR
-  - git clone --depth 1 git://github.com/DOCGroup/ACE_TAO.git
-  - git clone --depth 1 git://github.com/DOCGroup/MPC.git
+  - wget http://download.dre.vanderbilt.edu/previous_versions/ACE-6.4.0.tar.gz
+  - ls ./
 
 branches:
   only:
