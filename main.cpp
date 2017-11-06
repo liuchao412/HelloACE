@@ -11,6 +11,6 @@
 
 int ACE_TMAIN(int argc, ACE_TCHAR* argv[])
 {
-	ACE_DEBUG((LM_INFO, "Complite OK.\n"));
+	ACE_DEBUG((LM_INFO, "Hello World ACE.\n"));
 	return 0;
 }
