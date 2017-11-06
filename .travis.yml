@@ -37,7 +37,7 @@ before_script:
     fi
 
   - cd $ACE_ROOT
-  - perl $ACE_ROOT/bin/mwc.pl -type gnuace -workers 2 ace.mwc
+  - $ACE_ROOT/bin/mwc.pl -type gnuace ace.mwc
   - make -j 6
   - ls $ACE_ROOT/lib/
 script:
