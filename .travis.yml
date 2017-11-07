@@ -17,7 +17,6 @@ env:
     - COMPILER=g++-7
 
 before_install:
-  - sudo pip install codecov
   - mkdir -p $ACEDIR
   - cd $ACEDIR
   - wget http://download.dre.vanderbilt.edu/previous_versions/ACE-6.4.0.tar.gz
@@ -46,8 +45,6 @@ script:
   - $ACE_ROOT/bin/mwc.pl -type gnuace
   - make -j 6
   - ./ACETest
-  - sudo ./get_code_cov.sh
-  - codecov
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
