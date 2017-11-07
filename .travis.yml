@@ -46,8 +46,8 @@ script:
   - $ACE_ROOT/bin/mwc.pl -type gnuace
   - make -j 6
   - ./ACETest
-  - ./get_code_cov.sh
+  - sudo ./get_code_cov.sh
   - codecov
-  
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
