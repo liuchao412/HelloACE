@@ -45,3 +45,6 @@ script:
   - $ACE_ROOT/bin/mwc.pl -type gnuace
   - make -j 6
   - ./ACETest
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
