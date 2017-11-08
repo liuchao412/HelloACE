@@ -17,17 +17,17 @@ env:
     - COMPILER=g++-7
 
 before_install:
-  - mkdir -p $ACEDIR
-  - cd $ACEDIR
-  - wget http://download.dre.vanderbilt.edu/previous_versions/ACE-6.4.0.tar.gz
-  - tar zxf ACE-6.4.0.tar.gz
-
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
   - sudo apt-get -qq update
 
   #Codecov
   - sudo pip install codecov
   - chmod +x .get_code_cov.sh
+  
+  - mkdir -p $ACEDIR
+  - cd $ACEDIR
+  - wget http://download.dre.vanderbilt.edu/previous_versions/ACE-6.4.0.tar.gz
+  - tar zxf ACE-6.4.0.tar.gz
 
 install:
   #Codecov
@@ -59,6 +59,6 @@ script:
   - ./ACETest
   #Codecov
   - ./.get_code_cov.sh
-  
+
 after_success:
  - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
