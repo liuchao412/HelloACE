@@ -1,0 +1,20 @@
+*.DS_Store
+.depend
+
+#Ignore
+*.sublime-project
+*.sublime-workspace
+
+#Ignore executables
+bin/*
+
+# Ignore build files
+*.o
+
+# Ignore codecove files
+*.gcov
+*.gcda
+*.gcno
+
+
+
