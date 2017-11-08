@@ -27,7 +27,7 @@ script:
   - make test
   #Run the program
   - cd bin/
-  - ./application test
+  #- ./application test
   - cd ..
   #Codecov
   - ./.get_code_cov.sh
