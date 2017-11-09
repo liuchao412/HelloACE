@@ -7,6 +7,22 @@ compiler:
 os:
   - linux
 
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "d14aceb3ccd480c6f7a37d89595b3b1a11d65ac4"
+
+addons:
+  coverity_scan:
+    project:
+      name: "liuchao412/HelloACE"
+      description: "Build submitted via Travis CI"
+    notification_email: liuchao412@foxmail.com
+    build_command_prepend: "./configure; make clean"
+    build_command:   "make -j 4"
+    branch_pattern: coverity_scan
+
 before_install:
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
   - sudo apt-get -qq update
@@ -14,6 +30,8 @@ before_install:
   #Codecov
   - sudo pip install codecov
   - chmod +x .get_code_cov.sh
+
+  - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 
 install:
  
